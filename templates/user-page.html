@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}{{user.get_full_name()}}{% endblock %}
+
+
+
+{% block content %}
+<div class="blog-header">
+    <a href="/" class="home button">home</a>
+    <div class="user-display">
+        <img src={{user.image_url}} alt="user profile photo" class="user-photo">
+        <h1 class="blog-user-name">{{user.get_full_name()}}</h1>
+    </div>
+    <br>
+    <div class="user-options">
+        <a href="/users/{{user.id}}/edit" class="user-options button">edit</a>
+        <a href="/users/{{user.id}}/delete" class="user-options button">delete</a>
+    </div>
+        
+    <br>
+    
+</div>
+<div class="blog-content">
+    
+</div>
+<div class="blog-footer">
+
+</div>
+
+{% endblock %}

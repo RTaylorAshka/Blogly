@@ -1,0 +1,68 @@
+img.user-photo {
+    height: 10rem;
+    width: 10rem;
+    object-fit: cover;
+    float: left;
+    border-radius: 50%;
+}
+
+div.blog-header {
+    display: flex;
+    justify-content: left;
+    height: 15rem;
+    width: 100%;
+    background-color: rgb(182, 223, 209);
+
+    margin: 0px;
+    padding: 20px;
+    
+    
+    
+}
+
+h1.blog-user-name {
+    margin-left: 20px;
+    margin-top: 4rem;
+    float: left;
+}
+
+div.user-display {
+    width: 100%;
+    height: 10rem;
+}
+
+body {
+    background-color: rgb(241, 235, 226);
+    padding: 0px;
+    margin: 0px;
+}
+
+a.home {
+    
+    position: absolute;
+    left: 96%;
+    
+    
+}
+
+div.user-options {
+    display: flex;
+    justify-content: left;
+    position: absolute;
+    
+    right: 90%;
+    top: 22%;
+}
+
+a.user-options {
+    margin-left: 20px;
+    
+}
+
+a.button {
+    text-decoration: none;
+    background-color: rgb(117, 128, 138);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
