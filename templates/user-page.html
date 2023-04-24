@@ -4,22 +4,38 @@
 
 
 {% block content %}
-<div class="blog-header">
-    <a href="/" class="home button">home</a>
+<div class="user-header">
+    
     <div class="user-display">
         <img src={{user.image_url}} alt="user profile photo" class="user-photo">
         <h1 class="blog-user-name">{{user.get_full_name()}}</h1>
     </div>
-    <br>
+    
     <div class="user-options">
         <a href="/users/{{user.id}}/edit" class="user-options button">edit</a>
         <a href="/users/{{user.id}}/delete" class="user-options button">delete</a>
+        
     </div>
         
-    <br>
+    
     
 </div>
 <div class="blog-content">
+    <h3>Posts: </h3>
+    <a href="/users/{{user.id}}/posts/new" class="user-options button">new post</a>
+    {% if posts %}
+    <ul>
+        
+        {% for post in posts %}
+        <li><a href="/posts/{{post.id}}">{{post.title}}</a></li>
+        {% endfor %}
+        
+    </ul>
+    {% else %}
+
+    <p>{{user.first_name}} has no posts yet.</p>
+
+    {% endif %}
     
 </div>
 <div class="blog-footer">

@@ -4,17 +4,36 @@
 
 
 {% block content %}
+<div class="blog-content">
 
-<h1>Users:</h1>
-<ul>
+<div class="user-list">
+
+    <h3>Active Users:</h3>
+
+    <a href="/users/new" class="button">new user</a>
+
     {% for user in users %}
-    <li><a href="/users/{{user.id}}">{{user.get_full_name()}}</a></li>
+
+    
+    
+    <p class="user-list"> <img class="mini-image" src="{{user.image_url}}" alt="profile photo"> <a class = "user-link" href="/users/{{user.id}}">{{user.get_full_name()}}</a></p>
+    
+    
+    {% endfor %}
+
+
     
 
-    {% endfor %}
-</ul>
+</div>
 
-<a href="/users/new" class="button">new user</a>
+<!-- <div class="homepage-content">
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque, rem harum earum minima minus incidunt saepe ut aspernatur deserunt dolorem magni, asperiores eaque, esse necessitatibus vel optio? Quidem, cumque numquam?</p>
+
+</div> -->
+
+</div>
+
+
 
 
 

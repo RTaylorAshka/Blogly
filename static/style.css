@@ -2,67 +2,129 @@ img.user-photo {
     height: 10rem;
     width: 10rem;
     object-fit: cover;
-    float: left;
     border-radius: 50%;
 }
 
+
+
 div.blog-header {
-    display: flex;
-    justify-content: left;
-    height: 15rem;
+    height: 4rem;
     width: 100%;
-    background-color: rgb(182, 223, 209);
-
+    background-color: rgb(0, 3, 20);
     margin: 0px;
-    padding: 20px;
+    padding: 0px;
+    padding-top: 1rem;
+
     
-    
-    
+
+     
 }
 
-h1.blog-user-name {
-    margin-left: 20px;
-    margin-top: 4rem;
-    float: left;
-}
+a.blog-header {
+    color: rgb(255, 255, 255);
+    font-size: 1.5rem;
+    font-family: 'Baloo Tammudu 2', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    width: fit-content;
 
-div.user-display {
-    width: 100%;
-    height: 10rem;
+    margin: 2rem;
+    
 }
 
 body {
-    background-color: rgb(241, 235, 226);
-    padding: 0px;
     margin: 0px;
+    font-family: 'Baloo Tammudu 2',
+            sans-serif;
+    padding: 0px;
+
+    height: 110%;
+
+    background-color: rgb(255, 255, 255);
 }
 
-a.home {
+footer.blog-footer{
+    height: 2rem;
+    width: 100%;
+    padding: 0px;
+
     
-    position: absolute;
-    left: 96%;
+    background-color: rgb(0, 3, 20);
+    margin: 0px;
+    
+
+    position: sticky;
+    clear: both;
+    bottom: 0%;
+
+    
+}
+
+div.user-list {
+    background-color: rgb(74, 81, 92);
+    color: white;
+    margin: 0px;
+
+    float: left;
+
+    padding: 1rem;
+    padding-bottom: 1rem;
+    position: relative;
+    width: 15rem;
+    min-height: 55rem;
+
+    
     
     
 }
 
-div.user-options {
-    display: flex;
-    justify-content: left;
-    position: absolute;
+/* p.user-list{
+    background-color: white;
     
-    right: 90%;
-    top: 22%;
+} */
+img.mini-image {
+    height: 2rem;
+    width: 2rem;
+    object-fit: cover;
+    border-radius: 50%;
+    float: left;
+    margin-right: 0.5rem;
 }
 
-a.user-options {
-    margin-left: 20px;
-    
+a.user-link{
+    text-decoration: none;
+    max-height: 2rem;
+    margin: 0px;
+
+    color: white;
+}
+
+
+
+
+div.homepage-content{
+    margin: 0px;
+    padding: 0px;
 }
 
 a.button {
-    text-decoration: none;
-    background-color: rgb(117, 128, 138);
+    background-color: gray;
     color: white;
-    padding: 10px;
+    text-decoration: none;
     border-radius: 10px;
+    text-align: center;
+    padding: 5px;
+    padding-bottom: 1px;
+    height: fit-content;
+
+    
+    
+
 }
+
+/* 
+font-family: 'Baloo Tammudu 2',
+cursive;
+font-family: 'Nabla',
+cursive;
+*/

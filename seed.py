@@ -1,49 +1,95 @@
 from models import db, User, Post
 from app import app
+import random
 
 
 db.drop_all()
 db.create_all()
 
+names = [
+    "Olivia Johnson",
+    "Alexander Wilson",
+    "Emma Hernandez",
+    "William Davis",
+    "Charlotte Martin",
+    "Daniel Thompson",
+    "Sophia Anderson",
+    "Lucas Lee",
+    "Ava Garcia",
+    "Nicholas Wright"
+]
 
-u1 = User(first_name = 'Tim', last_name = 'Iwdkal')
-u2 = User(first_name = 'Dan', last_name = 'Ipsum')
-u3 = User(first_name = 'Amy', last_name = 'Doaralks')
-u4 = User(first_name = 'Jimmy', last_name = 'Alwdi')
-u5 = User(first_name = 'Timmy', last_name = 'Oakwod')
 
-db.session.add(u1)
-db.session.add(u2)
-db.session.add(u3)
-db.session.add(u4)
-db.session.add(u5)
+for name in names:
+    name = name.split(' ')
+    user = User(first_name = name[0], last_name = name[1])
+    db.session.add(user)
 
-p1 = Post(title = 'Lorem Ipsum', content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
-          user_id = 1)
+db.session.commit()
 
-p2 = Post(title = 'Lorem Twopsum', content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
-          user_id = 2)
-p3 = Post(title = 'Threelom Twopsum', content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
-          user_id = 2)
-p4 = Post(title = 'Fourlum Ipsum', content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
-          user_id = 2)
-p5 = Post(title = 'Loreeeem Ipsuuum', content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
-          user_id = 3)
-p6 = Post(title = 'lOrEM iPsuM', content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
-          user_id = 4)
-p7 = Post(title = 'Lorem', content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
-          user_id = 4)
-p8 = Post(title = 'IpsummMMmm', content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", 
-          user_id = 5)
+placeholder_text = """
+Placeholder text, oh what a sight,
+A jumble of words with no insight,
+Random letters and numbers galore,
+With no meaning or purpose to explore.
 
-db.session.add(p1)
-db.session.add(p2)
-db.session.add(p3)
-db.session.add(p4)
-db.session.add(p5)
-db.session.add(p6)
-db.session.add(p7)
-db.session.add(p8)
+A placeholder for words to come,
+A temporary fix for a code to run,
+But oh, how it lacks any grace,
+A chaotic mess that's hard to trace.
+
+Yet, in its own strange way,
+Placeholder text has something to say,
+A reminder of the work ahead,
+A promise of what's to be said.
+
+For in the world of code and design,
+The beauty lies in what's yet to shine,
+So let the placeholder text reside,
+Until the real words come alive.
+
+And when the time comes to replace,
+The gibberish with meaningful grace,
+Let the placeholder text remind,
+Of the journey that's left behind.
+
+For every keystroke and every click,
+A new line of text, oh so slick,
+A placeholder text so grand,
+Crafted with the help of a robot's hand.
+
+For besides these last two lines you see,
+This is a prompt from chat GPT.
+"""
+
+posts = [
+    "Understanding the Importance of Placeholder Text in UI Design",
+    "The Evolution of Placeholder Text: A Brief History",
+    "5 Tips for Crafting Effective Placeholder Text",
+    "Why Placeholder Text is Essential for Web Development",
+    "The Psychology of Placeholder Text: How it Affects User Experience",
+    "Maximizing Your Use of Placeholder Text for Better Design",
+    "The Dos and Don'ts of Creating Placeholder Text",
+    "Placeholder Text Best Practices: What You Need to Know",
+    "Making the Most of Placeholder Text in Your Next Web Project",
+    "The Art of Crafting Compelling Placeholder Text",
+    "Lorem Ipsum: The Design World's Go-To Filler Text",
+    "The History of Lorem Ipsum and Its Use in Design",
+    "10 Creative Ways to Use Lorem Ipsum in Your Design Projects",
+    "Mastering the Art of Lorem Ipsum in Your Writing",
+    "The Dos and Don'ts of Using Lorem Ipsum in Your Design",
+    "Why Lorem Ipsum is Still a Relevant Design Tool Today",
+    "Designing with Lorem Ipsum: Tips and Tricks",
+    "Maximizing Your Use of Lorem Ipsum for Web Design",
+    "10 Alternatives to Lorem Ipsum You Need to Know",
+    "Creating Effective Lorem Ipsum for Your Website Design"
+]
+
+for title in posts:
+    post = Post(title = title, content = placeholder_text, user_id = random.randint(1, 10))
+    db.session.add(post)
+
+
 
 
 db.session.commit()
