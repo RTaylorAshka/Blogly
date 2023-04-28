@@ -1,36 +1,40 @@
 {% extends 'base.html' %}
-{% block title %}{{user.get_full_name()}}{% endblock %}
+{% block title %}{{user.get_full_name}}{% endblock %}
 
 
 
 {% block content %}
-<div class="user-header">
-    
+
+<div class="user-header" style="background-image: url({{bg}})">
+
     <div class="user-display">
         <img src={{user.image_url}} alt="user profile photo" class="user-photo">
-        <h1 class="blog-user-name">{{user.get_full_name()}}</h1>
+        <h1 class="blog-user-name">{{user.get_full_name}}</h1>
     </div>
-    
+
     <div class="user-options">
         <a href="/users/{{user.id}}/edit" class="user-options button">edit</a>
-        <a href="/users/{{user.id}}/delete" class="user-options button">delete</a>
         
+
     </div>
-        
-    
-    
+
+
+
 </div>
+
 <div class="blog-content">
-    <h3>Posts: </h3>
+    
+
+    <h1>Posts: </h1>
     <a href="/users/{{user.id}}/posts/new" class="user-options button">new post</a>
+
+    <br>
     {% if posts %}
-    <ul>
-        
-        {% for post in posts %}
-        <li><a href="/posts/{{post.id}}">{{post.title}}</a></li>
-        {% endfor %}
-        
-    </ul>
+    {% for post in posts %}
+    <a href="/posts/{{post.id}}" class="post-link">{{post.title}}</a>
+    <br>
+    {% endfor %}
+    
     {% else %}
 
     <p>{{user.first_name}} has no posts yet.</p>

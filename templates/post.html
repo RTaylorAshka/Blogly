@@ -5,10 +5,24 @@
 
 {% block content %}
 
-<h1>{{post.title}}</h1>
-<h3>posted on {{post.created_at}} by {{post.user.get_full_name()}}</h3>
-<pre>{{post.content}}</pre>
+<div class = "blog-content">
+    <a href="/posts/{{post.id}}/edit" class="user-options button">edit</a>
+    
+    <h1>{{post.title}}</h1>
+    <h3>posted on {{post.created_at}} by {{post.user.get_full_name}}</h3>
+    <pre>{{post.content}}</pre>
+    <br>
+    <span>Tagged with: </span>
+    {% for tag in post.tags %}
+    
+    <a href="/tags/{{tag.id}}" class="tag">{{tag.tag_name}}</a>
+    
+    {% endfor %}
+    
+    
 
-<a href="/posts/{{post.id}}/edit" class="user-options button">edit</a>
-<a href="/posts/{{post.id}}/delete" class="user-options button">delete</a>
+
+</div>
+
+
 {% endblock %}

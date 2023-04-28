@@ -1,0 +1,62 @@
+{% extends 'base.html' %} 
+{% block title %}Blogly Home{% endblock %} 
+
+
+
+{% block content %}
+
+<div class="homepage-content">
+    <div class="user-list">
+        
+        <h2 id="active-user-title">Active Users:</h2>
+    
+        <a href="/users/new" class="button">+</a>
+    
+        {% for user in users %}
+    
+    
+    
+        <p class="user-obj"> <img class="mini-image" src="{{user.image_url}}" alt="profile photo"> <a class="user-link"
+                href="/users/{{user.id}}">{{user.get_full_name}}</a></p>
+    
+    
+        {% endfor %}
+    
+    </div>
+
+    <div class = "blog-content">
+        <h1>Welcome</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Non animi officia delectus eius similique, perferendis sit impedit rerum laboriosam officiis iste quam pariatur necessitatibus amet obcaecati exercitationem ipsum maxime reiciendis?
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro autem odio expedita beatae error deleniti consequatur voluptatum, illo repellendus corporis, itaque aut exercitationem ab? Architecto hic enim impedit nobis deserunt?
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi quam fugit quis dolor recusandae ullam asperiores perferendis, sed atque ab ut quasi quo maiores magni. Eligendi impedit enim minima quisquam.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem aliquid placeat repellendus earum beatae incidunt minima impedit ullam sunt blanditiis. Voluptatem ipsam cumque hic id consectetur, excepturi voluptas laborum totam?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ipsa totam pariatur architecto illum exercitationem dolores. Aliquam recusandae, ducimus ipsum accusamus itaque quam earum quibusdam asperiores excepturi reiciendis quod fuga!
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi expedita dolor, autem perspiciatis neque dicta ut aliquid accusamus praesentium? Unde expedita harum fugiat ex aut quibusdam omnis dolores accusamus eaque.
+        </p>
+
+        <br>
+        
+        
+        <h1>Featured Posts:</h1>
+        {% for post in featured %}
+        <a href="/posts/{{post.id}}" class="post-link">{{post.title}}</a> <span>by {{post.user.get_full_name}}</span>
+        <br>
+        {% endfor %}
+
+        <h1>Explore <a href="/tags">Tags</a></h1>
+    </div>
+
+
+
+
+
+</div>
+
+
+
+
+
+{% endblock %}

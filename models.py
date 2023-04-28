@@ -34,7 +34,9 @@ class User(db.Model):
     )
     
     
-    
+    posts = db.relationship('Post', backref = 'user', cascade="all, delete-orphan")
+
+    @property
     def get_full_name(self):
         return f"{self.first_name} {self.last_name}"
     
@@ -56,14 +58,86 @@ class Post(db.Model):
                       )
     content = db.Column(db.String,
                         nullable = False)
-    created_at = db.Column(db.DateTime,
-                           default = datetime.now()
+    created_at = db.Column(db.String,
+                           default = datetime.now().strftime("%-m/%-d/%Y at %-H:%M %p")
                            )
     user_id = db.Column(db.Integer, 
                         db.ForeignKey('users.id')
                         )
     
-    user = db.relationship('User', backref = 'posts')
+    
+   
     
 
 
+
+
+class Tag(db.Model):
+
+        __tablename__ = 'tags'
+
+        id = db.Column(db.Integer,
+                       primary_key = True,
+                       autoincrement = True
+                       )
+        tag_name = db.Column(db.String,
+                             nullable = False
+                             )
+        
+        posts = db.relationship('Post', secondary = 'post_tags', backref = 'tags', cascade ='all, delete')
+        
+        
+    
+    
+        
+
+class PostTag(db.Model):
+
+        __tablename__ = 'post_tags'
+        
+        tag_id = db.Column(db.Integer, 
+                        db.ForeignKey('tags.id'),
+                        primary_key = True
+                        )
+        
+        post_id = db.Column(db.Integer, 
+                        db.ForeignKey('posts.id'),
+                        primary_key = True
+                        )
+
+        
+    
+
+def collapse_tags(tag):
+
+    for post in tag.posts:
+        PostTag.query.filter_by(tag_id = tag.id, post_id = post.id).delete()
+
+    db.session.commit()
+
+    Tag.query.filter_by(id=tag.id).delete()
+    
+    db.session.commit()
+
+
+
+def collapse_post(post):
+     
+    for tag in post.tags:
+        PostTag.query.filter_by(tag_id = tag.id, post_id = post.id).delete()
+
+    Post.query.filter_by(id = post.id).delete()
+
+    db.session.commit()
+
+
+def collapse_user(user):
+     
+    for post in user.posts:
+        collapse_post(post)
+
+    
+    User.query.filter_by(id=user.id).delete()
+
+    db.session.commit()
+     

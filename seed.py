@@ -1,4 +1,4 @@
-from models import db, User, Post
+from models import db, User, Post, Tag, PostTag
 from app import app
 import random
 
@@ -21,8 +21,8 @@ names = [
 
 
 for name in names:
-    name = name.split(' ')
-    user = User(first_name = name[0], last_name = name[1])
+    fullname = name.split(' ')
+    user = User(first_name = fullname[0], last_name = fullname[1], image_url = f"https://picsum.photos/id/{names.index(name) + 27}/300/300")
     db.session.add(user)
 
 db.session.commit()
@@ -91,5 +91,36 @@ for title in posts:
 
 
 
+
+db.session.commit()
+
+tags = [ 
+    "lifestyle",
+        "fashion",
+        "travel",
+        "food",
+        "health",
+        "fitness",
+        "parenting",
+        "technology",
+        "business",
+        "marketing",
+        "finance",
+        "education",
+        "politics",
+        "entertainment",
+        "sports",
+        "music",
+        "art",
+        "books",
+        "culture",
+        "personal development"
+        ]
+
+for name in tags:
+    tag = Tag(tag_name = name )
+    db.session.add(tag)
+    post = Post.query.get(random.randint(1, 20))
+    tag.posts.append(post)
 
 db.session.commit()

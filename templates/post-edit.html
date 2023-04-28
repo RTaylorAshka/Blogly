@@ -5,14 +5,29 @@
 
 {% block content %}
 
-<h1>Add new post</h1>
+<div class="blog-content">
+    <h1>Edit Post</h1>
+    
+    <form action="/posts/{{post.id}}/edit" method="post">
+        <textarea type="text" placeholder="title" name="title" required class = "title">{{post.title}}</textarea>
+        <br>
+        <textarea placeholder="content" name="content" required class="body">{{post.content}}</textarea>
+        <br>
+        {% for tag in tags %}
 
-<form action="/posts/{{post.id}}/edit" method="post">
-    <input type="text" placeholder="title" name="title" value = {{post.title}} required>
-    <br>
-    <textarea placeholder="content" name="content" required>{{post.content}}</textarea>
-    <button>Submit</button>
-</form>
+        <span class="checkbox">
+            <label for="tag">{{tag.tag_name}}</label>
+            <input type="checkbox" name="tag" value={{tag.id}}>
+        </span>
+
+        {% endfor %}
+        <button>Submit</button>
+    </form>
+
+    <a href="/posts/{{post.id}}/delete" class="user-options button">delete post</a>
+</div>
+
+
 
 
 {% endblock %}
